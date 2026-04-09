@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Kur atrast lekciju grafiku?",
+    "keywords": ["grafiks", "lekciju grafiks", "studiju grafiks", "lekciju", "stundas", "saraksts", "plāns"],
+    "answer": "Lekciju grafiku parasti var atrast studiju portālā vai fakultātes mājaslapā.",
+    "source": "Studiju portāls / Fakultātes mājaslapa",
+    "url": "https://example.com/studiju-grafiks",
+    "next_step": "Atver studiju portālu un pārbaudi sava semestra grafiku."
+  },
+  {
+    "question": "Kā pieteikties stipendijai?",
+    "keywords": ["stipendija", "stipendijas", "stipendijai", "nauda", "atbalsts", "finansējums"],
+    "answer": "Informāciju par stipendijām meklē stipendiju nolikumā vai sazinoties ar studiju daļu.",
+    "source": "Stipendiju nolikums / Studiju daļa",
+    "url": "https://example.com/stipendijas",
+    "next_step": "Izlasi stipendiju nolikumu un pārbaudi pieteikšanās termiņus."
+  },
+  {
+    "question": "Ko darīt, ja nestrādā Moodle?",
+    "keywords": ["moodle", "e-studijas", "pieslēgšanās", "ielogoties", "parole", "nevar ieiet"],
+    "answer": "Ja nestrādā Moodle, pārbaudi pieslēgšanās datus un, ja problēma saglabājas, sazinies ar IT atbalstu.",
+    "source": "IT atbalsts / E-studiju sistēmas palīdzība",
+    "url": "https://example.com/it-atbalsts",
+    "next_step": "Pamēģini atkārtoti pieslēgties un, ja problēma nepazūd, raksti IT atbalstam."
+  },
+  {
+    "question": "Kur meklēt kontaktinformāciju?",
+    "keywords": ["kontakti", "epasts", "e-pasts", "telefons", "koordinators"],
+    "answer": "Kontaktinformāciju parasti var atrast augstskolas mājaslapas sadaļā 'Kontakti' vai fakultātes sadaļā.",
+    "source": "Augstskolas mājaslapas sadaļa 'Kontakti'",
+    "url": "https://example.com/kontakti",
+    "next_step": "Atver kontaktu sadaļu un atrodi sev vajadzīgo nodaļu vai personu."
+  },
+  {
+    "question": "Kur atrast informāciju par uzņemšanu?",
+    "keywords": ["uzņemšana", "iestāšanās", "iestāties", "pieteikšanās", "dokumenti"],
+    "answer": "Informāciju par uzņemšanu meklē augstskolas uzņemšanas sadaļā, kur ir termiņi, prasības un nepieciešamie dokumenti.",
+    "source": "Uzņemšanas sadaļa augstskolas mājaslapā",
+    "url": "https://example.com/uznemsana",
+    "next_step": "Pārbaudi prasītos dokumentus un uzņemšanas termiņus."
+  },
+  {
+    "question": "Kur atrodas bibliotēka?",
+    "keywords": ["bibliotēka", "grāmatas", "lasītava", "bibliotekā"],
+    "answer": "Informāciju par bibliotēkas atrašanās vietu, darba laiku un pieejamajiem resursiem meklē bibliotēkas sadaļā augstskolas mājaslapā.",
+    "source": "Bibliotēkas sadaļa augstskolas mājaslapā",
+    "url": "https://example.com/biblioteka",
+    "next_step": "Atver bibliotēkas lapu, lai pārbaudītu darba laiku un pieejamos resursus."
+  },
+  {
+    "question": "Kā notiek kursu reģistrācija?",
+    "keywords": ["kursu reģistrācija", "reģistrācija", "kursi", "priekšmeti", "izvēles kursi"],
+    "answer": "Kursu reģistrācija parasti notiek studiju portālā noteiktajos termiņos. Precīzu kārtību skaties studiju informācijas sistēmā.",
+    "source": "Studiju informācijas sistēma",
+    "url": "https://example.com/kursu-registracija",
+    "next_step": "Pieslēdzies studiju sistēmai un pārbaudi reģistrācijas periodu."
+  },
+  {
+    "question": "Kur atrast informāciju par eksāmeniem?",
+    "keywords": ["eksāmens", "eksāmeni", "sesija", "pārbaudījums", "ieskaite"],
+    "answer": "Informāciju par eksāmenu laikiem un sesijas kārtību meklē kursa aprakstā, Moodle vai studiju portālā.",
+    "source": "Kursa apraksts / Moodle / Studiju portāls",
+    "url": "https://example.com/eksameni",
+    "next_step": "Pārbaudi kursa aprakstu vai Moodle sadaļu ar pārbaudījumu datumiem."
+  },
+  {
+    "question": "Kā pieteikt akadēmisko atvaļinājumu?",
+    "keywords": ["akadēmiskais atvaļinājums", "atvaļinājums", "studiju pārtraukums", "pauze studijās"],
+    "answer": "Akadēmisko atvaļinājumu parasti piesaka ar iesniegumu studiju daļai. Pārbaudi augstskolas noteikumus un termiņus.",
+    "source": "Studiju daļa / Studiju kārtības noteikumi",
+    "url": "https://example.com/akademiskais-atvalinajums",
+    "next_step": "Sagatavo iesniegumu un sazinies ar studiju daļu par tālāko procesu."
+  },
+  {
+    "question": "Kur atrast informāciju par studiju maksu?",
+    "keywords": ["studiju maksa", "maksa", "mācību maksa", "samaksa", "rēķins"],
+    "answer": "Informāciju par studiju maksu, rēķiniem un apmaksas termiņiem meklē finanšu sadaļā vai studentu portālā.",
+    "source": "Finanšu sadaļa / Studentu portāls",
+    "url": "https://example.com/studiju-maksa",
+    "next_step": "Atver finanšu sadaļu un pārbaudi maksājuma termiņu vai rēķinu."
+  },
+  {
+    "question": "Kur atrast informāciju par praksi?",
+    "keywords": ["prakse", "internship", "prakses vieta", "prakses atskaite"],
+    "answer": "Informāciju par prakses prasībām, termiņiem un dokumentiem meklē studiju programmas aprakstā vai pie prakses vadītāja.",
+    "source": "Studiju programmas apraksts / Prakses vadītājs",
+    "url": "https://example.com/prakse",
+    "next_step": "Pārbaudi programmas prasības un sazinies ar prakses vadītāju."
+  },
+  {
+    "question": "Kur atrast informāciju par Erasmus vai apmaiņas studijām?",
+    "keywords": ["erasmus", "apmaiņa", "apmaiņas studijas", "studijas ārzemēs", "mobilitāte"],
+    "answer": "Informāciju par Erasmus un apmaiņas studijām meklē starptautiskās sadarbības vai mobilitātes sadaļā augstskolas mājaslapā.",
+    "source": "Starptautiskās sadarbības nodaļa / Mobilitātes sadaļa",
+    "url": "https://example.com/erasmus",
+    "next_step": "Atver mobilitātes sadaļu un iepazīsties ar pieteikšanās iespējām."
+  },
+  {
+    "question": "Kur redzēt savas sekmes?",
+    "keywords": ["sekmes", "atzīmes", "vērtējumi", "rezultāti"],
+    "answer": "Savas sekmes un vērtējumus parasti var apskatīt studiju informācijas sistēmā vai studentu portālā.",
+    "source": "Studiju informācijas sistēma / Studentu portāls",
+    "url": "https://example.com/sekmes",
+    "next_step": "Pieslēdzies studentu portālam un pārbaudi vērtējumu sadaļu."
+  },
+  {
+    "question": "Ko darīt, ja esmu nokavējis termiņu?",
+    "keywords": ["kavējums", "termiņš", "nokavēju", "nokavēts", "deadline"],
+    "answer": "Ja esi nokavējis termiņu, sazinies ar kursa docētāju, studiju daļu vai programmas koordinatoru, lai noskaidrotu iespējamos risinājumus.",
+    "source": "Studiju daļa / Kursa docētājs",
+    "url": "https://example.com/termini",
+    "next_step": "Pēc iespējas ātrāk sazinies ar atbildīgo personu un paskaidro situāciju."
+  },
+  {
+    "question": "Kur atrast informāciju par bakalaura darbu?",
+    "keywords": ["bakalaura darbs", "diplomdarbs", "noslēguma darbs", "darba vadītājs"],
+    "answer": "Informāciju par bakalaura darbu, tā izstrādes kārtību un termiņiem meklē studiju programmas noteikumos vai pie darba vadītāja.",
+    "source": "Studiju programmas noteikumi / Darba vadītājs",
+    "url": "https://example.com/bakalaura-darbs",
+    "next_step": "Pārbaudi darba izstrādes termiņus un sazinies ar darba vadītāju."
+  },
+  {
+    "question": "Kur atrast konsultāciju laikus?",
+    "keywords": ["konsultācija", "konsultācijas", "pieņemšana", "docētāja laiki"],
+    "answer": "Konsultāciju laikus parasti publicē docētāji Moodle, kursa aprakstā vai fakultātes informatīvajos kanālos.",
+    "source": "Moodle / Kursa apraksts / Fakultātes informācija",
+    "url": "https://example.com/konsultacijas",
+    "next_step": "Pārbaudi kursa informāciju vai sazinies ar docētāju tieši."
+  },
+  {
+    "question": "Kur atrast informāciju par kopmītnēm?",
+    "keywords": ["kopmītnes", "dienesta viesnīca", "dzīvošana", "istaba"],
+    "answer": "Informāciju par kopmītnēm, pieteikšanos un pieejamību meklē augstskolas dzīvošanas vai studentu servisa sadaļā.",
+    "source": "Studentu serviss / Dzīvošanas sadaļa",
+    "url": "https://example.com/kopmitnes",
+    "next_step": "Atver kopmītņu sadaļu un pārbaudi pieteikšanās noteikumus."
+  },
+  {
+    "question": "Ko darīt, ja pazaudēta studenta apliecība?",
+    "keywords": ["studenta apliecība", "apliecība", "pazaudēta apliecība", "studenta karte"],
+    "answer": "Ja pazaudēta studenta apliecība, sazinies ar studentu servisu vai studiju daļu, lai noskaidrotu atjaunošanas kārtību.",
+    "source": "Studentu serviss / Studiju daļa",
+    "url": "https://example.com/studenta-aplieciba",
+    "next_step": "Paziņo par nozaudēšanu un noskaidro, kā pieteikt jaunu apliecību."
+  },
+  {
+    "question": "Ko darīt, ja nedarbojas universitātes e-pasts?",
+    "keywords": ["epasts", "e-pasts", "universitātes e-pasts", "konts", "epasta konts"],
+    "answer": "Ja nedarbojas universitātes e-pasts, pārbaudi piekļuves datus un nepieciešamības gadījumā sazinies ar IT atbalstu.",
+    "source": "IT atbalsts",
+    "url": "https://example.com/epasts",
+    "next_step": "Pārbaudi pieslēgšanās datus un, ja nepieciešams, raksti IT atbalstam."
+  },
+  {
+    "question": "Vai var pārskatīt atzīmi?",
+    "keywords": ["atzīme", "pārskatīt atzīmi", "vērtējums", "apelācija", "iebildums"],
+    "answer": "Par atzīmes pārskatīšanu vispirms sazinies ar docētāju. Ja nepieciešams, pārbaudi apelācijas kārtību savas augstskolas noteikumos.",
+    "source": "Kursa docētājs / Studiju noteikumi",
+    "url": "https://example.com/atzimju-parskatisana",
+    "next_step": "Sazinies ar docētāju un noskaidro atzīmes pārskatīšanas iespējas."
+  }
+]

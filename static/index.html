@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studentu čatbots</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 920px;
+      margin: 30px auto;
+      padding: 0 16px;
+      background: #f4f6f8;
+      color: #1f2937;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .chat-container {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    }
+
+    #messages {
+      min-height: 460px;
+      max-height: 560px;
+      overflow-y: auto;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 14px;
+      background: #fafafa;
+      margin-bottom: 14px;
+    }
+
+    .message {
+      margin: 12px 0;
+      padding: 12px 14px;
+      border-radius: 12px;
+      max-width: 82%;
+      white-space: pre-wrap;
+      line-height: 1.45;
+    }
+
+    .user {
+      background: #dbeafe;
+      margin-left: auto;
+      text-align: right;
+    }
+
+    .bot {
+      background: #e5e7eb;
+      margin-right: auto;
+    }
+
+    .meta-title {
+      display: block;
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: bold;
+      color: #374151;
+    }
+
+    .meta-text {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      color: #4b5563;
+    }
+
+    .chat-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .chat-link:hover {
+      background: #1d4ed8;
+    }
+
+    .suggestions {
+      margin-top: 12px;
+    }
+
+    .suggestion-button {
+      display: inline-block;
+      margin: 6px 6px 0 0;
+      padding: 8px 12px;
+      border: 1px solid #93c5fd;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .suggestion-button:hover {
+      background: #dbeafe;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    input {
+      flex: 1;
+      padding: 13px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    button {
+      padding: 13px 18px;
+      border: none;
+      background: #2563eb;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    #clearBtn {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    #clearBtn:hover {
+      background: #d1d5db;
+    }
+  </style>
+</head>
+<body>
+  <h1>Studentu atbalsta čatbots</h1>
+
+  <div class="chat-container">
+    <div id="messages"></div>
+
+    <div class="input-row">
+      <input type="text" id="messageInput" placeholder="Ieraksti savu jautājumu..." />
+      <button id="sendBtn" type="button">Sūtīt</button>
+      <button id="clearBtn" type="button">Notīrīt sarunu</button>
+    </div>
+  </div>
+
+  <script>
+    const messages = document.getElementById("messages");
+    const input = document.getElementById("messageInput");
+    const sendBtn = document.getElementById("sendBtn");
+    const clearBtn = document.getElementById("clearBtn");
+
+    const STORAGE_KEY = "studentu_chatbot_saruna";
+
+    function saveChatToStorage() {
+      localStorage.setItem(STORAGE_KEY, messages.innerHTML);
+    }
+
+    function loadChatFromStorage() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+
+      if (saved && saved.trim() !== "") {
+        messages.innerHTML = saved;
+        reattachSuggestionButtonEvents();
+        messages.scrollTop = messages.scrollHeight;
+      } else {
+        addMessage(
+          "Sveiks! Uzdod jautājumu par studijām, stipendijām, uzņemšanu, kursiem vai Moodle.",
+          "bot"
+        );
+      }
+    }
+
+    function reattachSuggestionButtonEvents() {
+      const suggestionButtons = document.querySelectorAll(".suggestion-button");
+
+      suggestionButtons.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          sendSuggestedMessage(btn.textContent);
+        });
+      });
+    }
+
+    function addMessage(text, sender, source = "", url = "", nextStep = "", suggestions = []) {
+      const div = document.createElement("div");
+      div.className = "message " + sender;
+
+      const textNode = document.createElement("div");
+      textNode.textContent = text;
+      div.appendChild(textNode);
+
+      if (sender === "bot") {
+        if (source) {
+          const sourceTitle = document.createElement("span");
+          sourceTitle.className = "meta-title";
+          sourceTitle.textContent = "Avots";
+          div.appendChild(sourceTitle);
+
+          const sourceText = document.createElement("span");
+          sourceText.className = "meta-text";
+          sourceText.textContent = source;
+          div.appendChild(sourceText);
+        }
+
+        if (nextStep) {
+          const nextTitle = document.createElement("span");
+          nextTitle.className = "meta-title";
+          nextTitle.textContent = "Nākamais solis";
+          div.appendChild(nextTitle);
+
+          const nextText = document.createElement("span");
+          nextText.className = "meta-text";
+          nextText.textContent = nextStep;
+          div.appendChild(nextText);
+        }
+
+        if (url) {
+          const linkNode = document.createElement("a");
+          linkNode.className = "chat-link";
+          linkNode.href = url;
+          linkNode.target = "_blank";
+          linkNode.rel = "noopener noreferrer";
+          linkNode.textContent = "Atvērt saiti";
+          div.appendChild(linkNode);
+        }
+
+        if (suggestions && suggestions.length > 0) {
+          const suggestionsTitle = document.createElement("span");
+          suggestionsTitle.className = "meta-title";
+          suggestionsTitle.textContent = "Līdzīgās tēmas";
+          div.appendChild(suggestionsTitle);
+
+          const suggestionsWrapper = document.createElement("div");
+          suggestionsWrapper.className = "suggestions";
+
+          suggestions.forEach((suggestion) => {
+            const btn = document.createElement("button");
+            btn.className = "suggestion-button";
+            btn.type = "button";
+            btn.textContent = suggestion;
+
+            btn.addEventListener("click", function () {
+              sendSuggestedMessage(suggestion);
+            });
+
+            suggestionsWrapper.appendChild(btn);
+          });
+
+          div.appendChild(suggestionsWrapper);
+        }
+      }
+
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+      saveChatToStorage();
+    }
+
+    async function sendMessage(customText = null) {
+      const text = customText || input.value.trim();
+
+      if (!text) return;
+
+      addMessage(text, "user");
+
+      if (!customText) {
+        input.value = "";
+      }
+
+      try {
+        const response = await fetch("/api/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ message: text })
+        });
+
+        if (!response.ok) {
+          addMessage("Servera kļūda: " + response.status, "bot");
+          return;
+        }
+
+        const data = await response.json();
+        addMessage(
+          data.reply,
+          "bot",
+          data.source,
+          data.url,
+          data.next_step,
+          data.suggestions || []
+        );
+      } catch (error) {
+        addMessage("Radās kļūda: " + error.message, "bot");
+      }
+    }
+
+    function sendSuggestedMessage(text) {
+      sendMessage(text);
+    }
+
+    function clearChat() {
+      messages.innerHTML = "";
+      localStorage.removeItem(STORAGE_KEY);
+      addMessage(
+        "Sveiks! Uzdod jautājumu par studijām, stipendijām, uzņemšanu, kursiem vai Moodle.",
+        "bot"
+      );
+    }
+
+    sendBtn.addEventListener("click", function () {
+      sendMessage();
+    });
+
+    clearBtn.addEventListener("click", function () {
+      clearChat();
+    });
+
+    input.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        sendMessage();
+      }
+    });
+
+    loadChatFromStorage();
+  </script>
+</body>
+</html>
