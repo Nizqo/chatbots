@@ -25,7 +25,7 @@
   },
   {
     "question": "Kur meklēt kontaktinformāciju?",
-    "keywords": ["kontakti", "epasts", "e-pasts", "telefons", "koordinators"],
+    "keywords": ["kontakti", "epasts", "e-pasts", "telefons", "koordinators", "kontaktinformāciju", "kontaktinformācija"],
     "answer": "Kontaktinformāciju parasti var atrast augstskolas mājaslapas sadaļā 'Kontakti' vai fakultātes sadaļā.",
     "source": "Augstskolas mājaslapas sadaļa 'Kontakti'",
     "url": "https://www.jf.lu.lv/par-mums/kontakti/",
